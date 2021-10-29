@@ -16,9 +16,9 @@ public protocol InAppManagedActions {
 }
 
 open class InAppPurchases : NSObject {
-   open static let selfShared = InAppPurchases()
+    public static let selfShared = InAppPurchases()
     
-   open struct Configuration {
+    public struct Configuration {
         var storeProductIdentifiers : Set<String>
         var sharedKey : String
     }

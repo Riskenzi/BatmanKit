@@ -19,8 +19,8 @@ open class InAppPurchases : NSObject {
     public static let selfShared = InAppPurchases()
     
     public struct Configuration {
-        var storeProductIdentifiers : Set<String>
-        var sharedKey : String
+       public var storeProductIdentifiers : Set<String>
+       public var sharedKey : String
     }
     
     private static var configuration : Configuration?

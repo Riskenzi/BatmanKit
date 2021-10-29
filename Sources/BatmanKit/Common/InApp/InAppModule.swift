@@ -18,7 +18,7 @@ public protocol InAppManagedActions {
 open class InAppPurchases : NSObject {
    open static let selfShared = InAppPurchases()
     
-    struct Configuration {
+   open struct Configuration {
         var storeProductIdentifiers : Set<String>
         var sharedKey : String
     }
@@ -31,7 +31,7 @@ open class InAppPurchases : NSObject {
     var event : InAppManagedActions? = nil
     fileprivate let messageInvalid : String = "Invalid identifier"
     
-    class func start(_ configuration : Configuration) {
+   open class func start(_ configuration : Configuration) {
         InAppPurchases.configuration = configuration
     }
     

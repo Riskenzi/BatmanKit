@@ -16,26 +16,31 @@ public protocol InAppManagedActions {
 }
 
 open class InAppPurchases : NSObject {
-    static let selfShared = InAppPurchases()
+    public static let selfShared = InAppPurchases()
     
-    struct Configuration {
-        var storeProductIdentifiers : Set<String>
-        var sharedKey : String
+    public struct Configuration {
+        public var storeProductIdentifiers : Set<String>
+        public var sharedKey : String
+        
+        public  init(storeProductIdentifiers : Set<String>, sharedKey : String) {
+            self.sharedKey = sharedKey
+            self.storeProductIdentifiers = storeProductIdentifiers
+        }
     }
     
-    private static var configuration : Configuration?
+    public static var configuration : Configuration?
     
     public var storeItems = SKProduct()
     public var restoreValidations : Int = 0
     public var userHaveActivePurchases : Bool = false
-    var event : InAppManagedActions? = nil
+    public var event : InAppManagedActions? = nil
     fileprivate let messageInvalid : String = "Invalid identifier"
     
-    class func start(_ configuration : Configuration) {
+   open class func start(_ configuration : Configuration) {
         InAppPurchases.configuration = configuration
     }
     
-    private override init() {
+    public override init() {
         guard let configuration = InAppPurchases.configuration else {
             fatalError("Error - you must call setup before accessing InAppPurchases.shared")
         }

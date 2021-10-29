@@ -35,7 +35,7 @@ open class InAppPurchases : NSObject {
         InAppPurchases.configuration = configuration
     }
     
-    private override init() {
+    public override init() {
         guard let configuration = InAppPurchases.configuration else {
             fatalError("Error - you must call setup before accessing InAppPurchases.shared")
         }

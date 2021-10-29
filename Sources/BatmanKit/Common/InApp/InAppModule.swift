@@ -19,13 +19,8 @@ open class InAppPurchases : NSObject {
     public static let selfShared = InAppPurchases()
     
     public struct Configuration {
-        public var storeProductIdentifiers : Set<String>
-        public var sharedKey : String
-        
-        public  init(storeProductIdentifiers : Set<String>, sharedKey : String) {
-            self.sharedKey = sharedKey
-            self.storeProductIdentifiers = storeProductIdentifiers
-        }
+         var storeProductIdentifiers : Set<String>
+         var sharedKey : String
     }
     
     public static var configuration : Configuration?
@@ -33,7 +28,7 @@ open class InAppPurchases : NSObject {
     public var storeItems = SKProduct()
     public var restoreValidations : Int = 0
     public var userHaveActivePurchases : Bool = false
-    var event : InAppManagedActions? = nil
+    public var event : InAppManagedActions? = nil
     fileprivate let messageInvalid : String = "Invalid identifier"
     
    open class func start(_ configuration : Configuration) {

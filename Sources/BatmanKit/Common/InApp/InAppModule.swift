@@ -28,7 +28,7 @@ open class InAppPurchases : NSObject {
         }
     }
     
-    private static var configuration : Configuration?
+    public static var configuration : Configuration?
     
     public var storeItems = SKProduct()
     public var restoreValidations : Int = 0

@@ -11,13 +11,13 @@ import UIKit
 
 open class NavigationCoordinator: NSObject, Coordinator {
     
-    var rootViewController: UIViewController {
+    public  var rootViewController: UIViewController {
         navigationController
     }
     
-    let navigationController: BaseNavController
-    var childCoordinators = [Coordinator]()
-    var parentCoordinator: Coordinator?
+    public let navigationController: BaseNavController
+    public var childCoordinators = [Coordinator]()
+    public var parentCoordinator: Coordinator?
     
     init(navigationController: BaseNavController = .init()) {
         self.navigationController = navigationController

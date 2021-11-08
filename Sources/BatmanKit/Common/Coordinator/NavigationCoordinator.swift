@@ -27,7 +27,7 @@ open class NavigationCoordinator: NSObject, Coordinator {
         fatalError("Start method should be implemented.")
     }
     
-      func start(coordinator: Coordinator) {
+    public    func start(coordinator: Coordinator) {
         childCoordinators += [coordinator]
         coordinator.parentCoordinator = self
         coordinator.start()
@@ -38,7 +38,7 @@ open class NavigationCoordinator: NSObject, Coordinator {
         childCoordinators.removeAll()
     }
     
-    func didFinish(coordinator: Coordinator) {
+    public  func didFinish(coordinator: Coordinator) {
         if let index = childCoordinators.firstIndex(where: { $0 === coordinator }) {
             childCoordinators.remove(at: index)
         }

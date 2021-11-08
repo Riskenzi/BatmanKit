@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol Coordinator: AnyObject {
-    var rootViewController: UIViewController { get }
-    var parentCoordinator: Coordinator? { get set }
+open protocol Coordinator: AnyObject {
+  public  var rootViewController: UIViewController { get }
+    public  var parentCoordinator: Coordinator? { get set }
     
-    func start()
-    func start(coordinator: Coordinator)
-    func didFinish(coordinator: Coordinator)
-    func removeChildCoordinators()
+    public  func start()
+    public  func start(coordinator: Coordinator)
+    public  func didFinish(coordinator: Coordinator)
+    public  func removeChildCoordinators()
 }

@@ -13,7 +13,7 @@ open class RealmService {
     
     // MARK: - Root Realm DataBase
     
-    static let config = Realm.Configuration(
+  public  static let config = Realm.Configuration(
         // Set the new schema version. This must be greater than the previously used
         // version (if you've never set a schema version before, the version is 0).
         schemaVersion: 1,
@@ -39,7 +39,7 @@ open class RealmService {
     
     // MARK: - Life cycle
     
-    init() { }
+  public  init() { }
     
     // MARK: - Generic
     

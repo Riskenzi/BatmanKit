@@ -7,14 +7,14 @@
 
 import RealmSwift
 
-open protocol Translatable {
+public protocol Translatable {
     associatedtype ManagedObject: Object
     
     init(object: ManagedObject)
     func toManagedObject() -> ManagedObject
 }
 
-open protocol StorageProtocol {
+public protocol StorageProtocol {
     func cachedPlainObjects<T: Translatable>() -> [T]
     func save<T: Translatable>(objects: [T]) throws
     func deleteAll<T: Translatable>(of type: T.Type) throws

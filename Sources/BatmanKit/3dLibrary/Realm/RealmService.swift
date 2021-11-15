@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class RealmService {
+open class RealmService {
     
     // MARK: - Root Realm DataBase
     
@@ -35,7 +35,7 @@ class RealmService {
     // Init realm with configurations for handle migrations.
     // It will make possible to find created and removed properties.
     // Realm will update data base automatical.
-    var realm = try! Realm(configuration: RealmService.config)
+    public var realm = try! Realm(configuration: RealmService.config)
     
     // MARK: - Life cycle
     
@@ -43,16 +43,16 @@ class RealmService {
     
     // MARK: - Generic
     
-    func loadTable<T: Object>(ofType: T.Type) -> Results<T> {
+   public func loadTable<T: Object>(ofType: T.Type) -> Results<T> {
         return realm.objects(T.self)
     }
     
-    func autoID<T: Object>(ofType: T.Type) -> Int {
+    public func autoID<T: Object>(ofType: T.Type) -> Int {
         let realm = try! Realm()
         return (realm.objects(T.self).max(ofProperty: "primaryKey") as Int? ?? 0) + 1
     }
     
-    func updateObject(_ object: Object, with dictionary: [String: Any?]) {
+    public func updateObject(_ object: Object, with dictionary: [String: Any?]) {
         do {
             try realm.write {
                 for (key, value) in dictionary {
@@ -64,7 +64,7 @@ class RealmService {
         }
     }
     
-    func setData<T: RealmSwift.Object>(_ data: [T]) {
+    public func setData<T: RealmSwift.Object>(_ data: [T]) {
         do {
             let realm = try Realm()
             try realm.write {
@@ -74,7 +74,7 @@ class RealmService {
             print("cannot write products \(error)")
         }
     }
-    func insertObject<T: Object>(_ object: T) {
+    public  func insertObject<T: Object>(_ object: T) {
         do {
             try realm.write {
                 realm.add(object, update: .error)
@@ -84,7 +84,7 @@ class RealmService {
         }
     }
     
-    func updateRealm<T: Object>(_ object: T, with dictionary: [String: Any]) {
+    public  func updateRealm<T: Object>(_ object: T, with dictionary: [String: Any]) {
         do {
             try realm.write {
                 for (key, value) in dictionary {
@@ -97,7 +97,7 @@ class RealmService {
     }
     
     
-    func deleteRealm<T: Object>(_ object: T) {
+    public func deleteRealm<T: Object>(_ object: T) {
         do {
             try realm.write {
                 realm.delete(object)
@@ -108,7 +108,7 @@ class RealmService {
     }
     
     
-    func dropDatabase() -> Bool {
+    public  func dropDatabase() -> Bool {
         do {
             try realm.write {
                 realm.deleteAll()

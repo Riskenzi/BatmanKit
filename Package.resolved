@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "Realm",
-        "repositoryURL": "https://github.com/realm/realm-cocoa.git",
+        "repositoryURL": "https://github.com/realm/realm-cocoa",
         "state": {
-          "branch": "master",
-          "revision": "f630b28cc3d056f784d568569e671e32b9eacb6c",
-          "version": null
+          "branch": null,
+          "revision": "bdbbd57f411a0f4e72b359113dbc6d23fdf96680",
+          "version": "10.20.0"
         }
       },
       {

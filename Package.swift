@@ -19,7 +19,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/kirualex/SwiftyGif.git", .upToNextMajor(from: "5.0.0")),
         .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1")),
-        .package(url: "https://github.com/realm/realm-cocoa.git", .branch("master")),
+        .package(name: "Realm", url: "https://github.com/realm/realm-cocoa", from: "10.7.0"),
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.2.0")),
         .package(url: "https://github.com/bizz84/SwiftyStoreKit.git", .branch("master"))
         //https://github.com/ReactiveX/RxSwift.git
@@ -29,7 +29,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "BatmanKit",
-            dependencies: ["SwiftyGif","SnapKit","SwiftyStoreKit",.product(name: "RealmSwift", package: "realm-cocoa"),"RxSwift",
+            dependencies: ["SwiftyGif","SnapKit","SwiftyStoreKit",.product(name: "RealmSwift", package: "Realm"),"RxSwift",
                            .product(name: "RxCocoa", package: "RxSwift")]),
         .testTarget(
             name: "BatmanKitTests",

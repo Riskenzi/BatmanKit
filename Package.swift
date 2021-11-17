@@ -18,10 +18,10 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/kirualex/SwiftyGif.git", .upToNextMajor(from: "5.0.0")),
-        .package(url: "https://github.com/SnapKit/SnapKit.git", .branch("develop")),
-        .package(url: "https://github.com/bizz84/SwiftyStoreKit.git", .branch("master")),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1")),
         .package(url: "https://github.com/realm/realm-cocoa.git", .branch("master")),
         .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.2.0")),
+        .package(url: "https://github.com/bizz84/SwiftyStoreKit.git", .branch("master"))
         //https://github.com/ReactiveX/RxSwift.git
     ],
     targets: [
